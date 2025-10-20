@@ -1,0 +1,55 @@
+# =============================================================================
+# Archivos de Sistema Operativo
+# =============================================================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =============================================================================
+# Logs y Archivos de Depuración
+# =============================================================================
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# =============================================================================
+# Dependencias (Nunca subir a Git)
+# =============================================================================
+node_modules/
+client/node_modules/
+
+# =_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=
+# ARCHIVOS SENSIBLES Y DE ENTORNO (¡MUY IMPORTANTE!)
+# =_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Tu archivo de credenciales de Firebase Admin.
+# ¡NUNCA COMPARTIR ESTE ARCHIVO!
+melator-app-firebase-adminsdk.json
+
+# =============================================================================
+# Archivos de Compilación y Distribución (Generados automáticamente)
+# =============================================================================
+# Carpeta de build del proyecto de React/Vite
+client/dist/
+
+# Carpetas de empaquetado y distribución de Electron
+dist/
+release/
+build/
+*.exe
+*.dmg
+*.AppImage
+
+# =============================================================================
+# Otros
+# =============================================================================
+# Cache de npm y otros gestores de paquetes
+.npm
+.pnp.*

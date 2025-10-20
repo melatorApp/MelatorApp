@@ -1,0 +1,56 @@
+{
+  "name": "melator",
+  "version": "1.0.6",
+  "description": "Generador y analizador de jugadas para Melate.",
+  "author": "Tu Nombre",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "cross-env NODE_ENV=development concurrently \"npm run dev:react\" \"npm run dev:electron\"",
+    "dev:react": "cd client && npm run dev",
+    "dev:electron": "wait-on tcp:5173 && electron .",
+    "build": "cd client && npm run build",
+    "dist": "npm run build && electron-builder",
+    "publish": "npm run build && electron-builder --publish always"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "concurrently": "^8.2.2",
+    "csv-parser": "^3.0.0",
+    "electron-updater": "^6.1.7",
+    "firebase": "^10.12.2",
+    "firebase-admin": "^12.1.0",
+    "wait-on": "^7.2.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "electron": "^28.2.5",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.melator.app",
+    "productName": "Melator",
+    "icon": "assets/icon.ico",
+    "files": [
+      "main.js",
+      "preload.js",
+      "resultados_melate.csv",
+      "melator-app-firebase-adminsdk.json",
+      "assets/**/*",
+      "client/dist/**/*"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "melatorApp",
+      "repo": "MelatorApp",
+      "releaseType": "release"
+    }
+  }
+}
