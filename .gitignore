@@ -28,6 +28,7 @@ client/node_modules/
 .env.development.local
 .env.test.local
 .env.production.local
+.env.melatorapp # <-- ✨ LÍNEA AÑADIDA AQUÍ
 
 # Tu archivo de credenciales de Firebase Admin.
 # ¡NUNCA COMPARTIR ESTE ARCHIVO!

@@ -90,3 +90,70 @@ export const getTableHeader = (colors) => ({
   color: colors.text,
   fontWeight: 'bold',
 });
+
+// --- ✨ CÓDIGO NUEVO AÑADIDO AL FINAL ---
+
+export const getHamburgerBtnStyle = (colors) => ({
+  background: 'none',
+  border: `1px solid ${colors.border}`,
+  borderRadius: '8px',
+  width: '40px',
+  height: '40px',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-around',
+  alignItems: 'center',
+  padding: '8px 6px',
+  cursor: 'pointer',
+  transition: 'background-color 0.2s ease',
+});
+
+export const getHamburgerIconLineStyle = (colors) => ({
+  width: '20px',
+  height: '2px',
+  backgroundColor: colors.text,
+  borderRadius: '1px',
+});
+
+export const getDropdownMenuStyle = (colors) => ({
+  position: 'absolute',
+  top: 'calc(100% + 10px)', // 10px debajo del botón
+  right: 0,
+  backgroundColor: colors.surface,
+  border: `1px solid ${colors.border}`,
+  borderRadius: '12px',
+  boxShadow: '0 8px 16px rgba(0, 0, 0, 0.1)',
+  zIndex: 1010,
+  width: '250px',
+  overflow: 'hidden',
+  padding: '8px 0',
+});
+
+// Estilo para items clickeables (botones)
+export const getDropdownMenuItemStyle = (colors) => ({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '12px',
+  background: 'none',
+  border: 'none',
+  width: '100%',
+  padding: '12px 16px',
+  textAlign: 'left',
+  fontSize: '0.95rem',
+  color: colors.text,
+  cursor: 'pointer',
+  transition: 'background-color 0.2s ease',
+});
+
+// Estilo para items no clickeables (divs)
+export const getDropdownItemDivStyle = (colors) => ({
+    ...getDropdownMenuItemStyle(colors),
+    cursor: 'default',
+});
+
+// Estilo para la línea separadora
+export const getDropdownSeparatorStyle = (colors) => ({
+    height: '1px',
+    background: colors.border,
+    margin: '8px 0',
+});

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useAuth } from './AuthContext';
-import { useTheme } from './ThemeContext'; // <-- CORRECCIÓN CLAVE
-import { getSectionStyle, getBtnStyle, getInputStyle, typography } from './styles';
+import { useTheme } from './ThemeContext';
+// --- MODIFICADO: Importamos 'common' de los estilos ---
+import { getSectionStyle, getBtnStyle, getInputStyle, typography, common } from './styles';
 import toast from 'react-hot-toast';
 
 export default function Login({ onSwitchToRegister }) {
@@ -26,15 +27,18 @@ export default function Login({ onSwitchToRegister }) {
   const sectionStyle = { ...getSectionStyle(colors), maxWidth: '400px', margin: 'auto' };
   const inputStyle = getInputStyle(colors);
   const btnStyle = getBtnStyle();
+  
+  // --- MODIFICADO: Usamos 'common.primary' en lugar de 'colors.primary' ---
   const linkStyle = {
     background: 'none',
     border: 'none',
-    color: colors.primary,
+    color: common.primary, // <-- Esta es la corrección
     textDecoration: 'underline',
     cursor: 'pointer',
     padding: 0,
     fontFamily: "'Inter', sans-serif",
   };
+  // --- FIN DE LA MODIFICACIÓN ---
 
   return (
     <div style={sectionStyle}>

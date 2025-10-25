@@ -1,8 +1,8 @@
 {
   "name": "melator",
-  "version": "1.0.6",
+  "version": "1.0.17",
   "description": "Generador y analizador de jugadas para Melate.",
-  "author": "Tu Nombre",
+  "author": "MelatorCorp",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -17,6 +17,7 @@
     "axios": "^1.7.2",
     "concurrently": "^8.2.2",
     "csv-parser": "^3.0.0",
+    "electron-log": "^5.4.3",
     "electron-updater": "^6.1.7",
     "firebase": "^10.12.2",
     "firebase-admin": "^12.1.0",
@@ -43,8 +44,9 @@
       "output": "dist"
     },
     "nsis": {
-      "oneClick": false,
-      "allowToChangeInstallationDirectory": true
+      "oneClick": true,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": false
     },
     "publish": {
       "provider": "github",

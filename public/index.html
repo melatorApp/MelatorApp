@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Melator Pro - Checkout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Estilos simples para que no se vea tan mal */
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; display: grid; place-items: center; min-height: 100vh; background-color: #f4f7f6; }
+    .container { background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center; }
+    h1 { margin-top: 0; }
+    #pay-button { font-size: 1rem; font-weight: 600; padding: 12px 20px; border-radius: 6px; border: none; background-color: #3b82f6; color: white; cursor: pointer; }
+    #pay-button:disabled { background-color: #9ca3af; cursor: not-allowed; }
+  </style>
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Melator Pro</h1>
+    <p>Estás a un paso de activar tu suscripción mensual de $39 MXN.</p>
+    <button id="pay-button" role="link">Pagar Ahora</button>
+    <p id="error-message" style="color: red;"></p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

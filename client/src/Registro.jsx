@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from './AuthContext';
-import { useTheme } from './ThemeContext'; // <-- CORRECCIÓN CLAVE
+import { useTheme } from './ThemeContext';
 import { getSectionStyle, getBtnStyle, getInputStyle, typography } from './styles';
 import toast from 'react-hot-toast';
 
@@ -12,6 +12,12 @@ export default function Registro({ onSwitchToLogin }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  
+  // --- ✨ CAMBIO 1: Tres estados para el nombre ---
+  const [nombre, setNombre] = useState('');
+  const [apellidoPaterno, setApellidoPaterno] = useState('');
+  const [apellidoMaterno, setApellidoMaterno] = useState('');
+  
   const [loading, setLoading] = useState(false);
   const [isAgreed, setIsAgreed] = useState(false);
 
@@ -22,7 +28,9 @@ export default function Registro({ onSwitchToLogin }) {
       return;
     }
     setLoading(true);
-    const result = await register(email, password);
+    
+    // --- ✨ CAMBIO 2: Pasamos los tres campos a la función de registro ---
+    const result = await register(email, password, nombre, apellidoPaterno, apellidoMaterno); 
     
     if (result.success) {
         toast.success('¡Registro exitoso! Revisa tu correo para verificar tu cuenta.');
@@ -50,6 +58,33 @@ export default function Registro({ onSwitchToLogin }) {
     <div style={sectionStyle}>
         <h2 style={{...typography.h2, color: colors.text, textAlign: 'center' }}>Crear Cuenta</h2>
         <form onSubmit={handleSubmit} style={{display: 'flex', flexDirection: 'column', gap: '1.2rem', marginTop: '2rem'}}>
+            
+            {/* --- ✨ CAMBIO 3: Tres campos de texto en el formulario --- */}
+            <input 
+              type="text" 
+              value={nombre} 
+              onChange={(e) => setNombre(e.target.value)} 
+              placeholder="Nombre(s)" 
+              required 
+              style={inputStyle} 
+            />
+            <input 
+              type="text" 
+              value={apellidoPaterno} 
+              onChange={(e) => setApellidoPaterno(e.target.value)} 
+              placeholder="Apellido Paterno" 
+              required 
+              style={inputStyle} 
+            />
+            <input 
+              type="text" 
+              value={apellidoMaterno} 
+              onChange={(e) => setApellidoMaterno(e.target.value)} 
+              placeholder="Apellido Materno" 
+              required 
+              style={inputStyle} 
+            />
+            
             <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Correo Electrónico" required style={inputStyle} />
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Contraseña (mín. 6 caracteres)" required style={inputStyle} />
             <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirmar Contraseña" required style={inputStyle} />
